@@ -1,15 +1,16 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import  useModal  from "../components/Modal/useModal"
 
 
 const  Header = () => {
 
-/*const [isActive, setIsActive] = useState<boolean>(false);
+const [isActive, setIsActive] = useState<boolean>(false);
 const [menuDisplay, setMenuDisplay] = useState<boolean>(false);
 const registered = useSelector((state:any) => state.userRegister);
 const { isOpen, toggle } = useModal();
 const loggedUser = useSelector((state:any) => state.userSignIn);
-*/
+
 
 //const { userInfo }  =  loggedUser
 
@@ -23,11 +24,11 @@ const loggedUser = useSelector((state:any) => state.userSignIn);
     dispatch<any>(logout())
 }*/
 
-/*const changeIcon = () => {
+const changeIcon = () => {
     setIsActive(current => !current);
-}*/
+}
 
-/*const toggleOpen = () => {
+const toggleOpen = () => {
     changeIcon();
     setMenuDisplay(!menuDisplay);
     const menu = document.querySelector("div.main_menu") as HTMLDivElement;
@@ -48,7 +49,6 @@ const loggedUser = useSelector((state:any) => state.userSignIn);
 function ModalComponent(){
     const { isOpen, toggle } = useModal();
 }
-*/
 
     return (
         <div className="fixed w-full z-10">
@@ -58,6 +58,7 @@ function ModalComponent(){
                     <div>
                         <Link to="/" className="text-lg  py-2 px-4 rounded-md bg-transparent text-white transition-all"> Reviewers</Link>
                     </div>
+                    
                 </div>
             </nav>
             
@@ -67,3 +68,7 @@ function ModalComponent(){
 
 
 export default Header
+
+function useSelector(arg0: (state: any) => any) {
+    throw new Error("Function not implemented.");
+}
