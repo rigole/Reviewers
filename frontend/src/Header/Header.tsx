@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import  useModal  from "../components/Modal/useModal"
-
+import  Modal  from "../components/Modal/Modal"
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../actions/userActions";
+import SignIn from "../components/SignIn/SignIn";
 
 const  Header = () => {
 
@@ -12,17 +15,17 @@ const { isOpen, toggle } = useModal();
 const loggedUser = useSelector((state:any) => state.userSignIn);
 
 
-//const { userInfo }  =  loggedUser
+const { userInfo }  =  loggedUser
 
-//const { registeredUser  } = registered
+const { registeredUser  } = registered
 
-//const dispatch = useDispatch()
+const dispatch = useDispatch()
 
 //console.log(registeredUser);
 
-/*const logoutHandler = () => {
+const logoutHandler = () => {
     dispatch<any>(logout())
-}*/
+}
 
 const changeIcon = () => {
     setIsActive(current => !current);
@@ -50,25 +53,202 @@ function ModalComponent(){
     const { isOpen, toggle } = useModal();
 }
 
-    return (
-        <div className="fixed w-full z-10">
-            This is the header
-            <nav className=" w-full px-5 absolute list-none  right-0 left-0 z-10 text-blue-400 bg-[#1a1a37]">
-                <div className="mx-auto flex py-5 justify-between font-comf">
-                    <div>
-                        <Link to="/" className="text-lg  py-2 px-4 rounded-md bg-transparent text-white transition-all"> Reviewers</Link>
-                    </div>
-                    
+return (
+    <div className="fixed w-full z-10 ">
+        <nav className=" w-fulsl px-5 absolute list-none  right-0 left-0 z-10 text-blue-400 bg-[#1a1a37]">
+            <div className=" mx-auto flex py-5 justify-between font-comf">
+                <div>
+                    <Link to="#" className="text-lg  py-2 px-4 rounded-md bg-transparent text-white   transition-all">Reviewers Logo</Link>
                 </div>
-            </nav>
-            
-        </div>
-    )
+                <ul className="hidden  list-none md:flex items-center space-x-1">
+                    <Link to="/universities">
+                        <li
+                            className="py-2 px-4 rounded-md bg-transparent text-white hover:bg-amber-500 hover:text-white transition-all">
+                            Universities
+                        </li>
+                    </Link>
+                    <Link to="/programs">
+                        <li
+                            className="py-2 px-4 rounded-md bg-transparent text-white hover:bg-amber-500 hover:text-white transition-all">
+                            Programs
+                        </li>
+                    </Link>
+                    <Link to="/fields">
+                        <li
+                            className="py-2 px-4 rounded-md bg-transparent text-white hover:bg-amber-500 hover:text-white transition-all">
+                            Fields of Study
+                        </li>
+                    </Link>
+                    <Link to="">
+                        <li
+                            className="py-2 px-4 rounded-md bg-transparent text-white hover:bg-amber-500 hover:text-white transition-all">
+                            fr
+                        </li>
+                    </Link>
+                    { userInfo  ?
+                        (
+                            <>
+                                 <Link className="" to="">
+                                    <li
+                                       className="py-2 px-4 rounded-md bg-transparent text-white hover:bg-amber-500 hover:text-white transition-all"
+                                    >
+                                        My Favourites
+                                    </li>
+                                </Link>
+                                <Link className="" to="">
+                                    <li 
+                                    onClick={logoutHandler}
+                                        className="py-2 px-4 rounded-md bg-transparent text-white hover:bg-amber-500 hover:text-white transition-all"
+                                    >
+                                        Sign out
+                                        
+                                    </li>
+                                </Link>
+
+                                <Link className="" to="">
+                                    <li 
+                                        className="py-2 px-4 rounded-md bg-transparent text-white hover:bg-amber-500 hover:text-white transition-all"
+                                    >
+                                      {userInfo.username}
+                                        
+                                    </li>
+                                </Link>
+                            </>
+                               
+                           
+                        ):(
+                                
+                            <div  className="rounded-full py-2 px-4 border-1 hover:bg-amber-300">
+                                <Link className="space-x-5  rounded-md bg-transparent text-white  hover:text-white transition-all" to="/signin">
+                                    Sign In
+                                </Link>
+                            </div>   
+                        )
+                    }
+                   
+                </ul>
+
+                <button className="md:hidden mobile-menu-button flex flex-col" onClick={toggleOpen}>
+                    <i className = { isActive ? `fa-solid fa-x w-16 h-6 text-white text-center items-center  justify-items-center rounded-full  border-1  ` : `fa-solid fa-bars w-16 h-6 text-white text-center rounded-full   border-1 `}>
+
+                    </i>
+                </button>
+
+
+                    <div className= { !menuDisplay ?  `md:hidden main_menu  w-0 fixed top-0 left-0  z-1 h-full overflow-x-hidden bg-gray-700 ` : `md:hidden main_menu  w-0 fixed top-0 left-0 z-1 overflow-x-hidden  h-full  bg-gray-700 `}  >
+                        <ul className="testing_list  py-14 px-4  bg-gray-700 ">
+                            <Link to="/universities" className="block  px-1 py-7  text-white  font-semibold">
+                                <li className="w-1/2 px-1">
+                                    Universities
+                                </li>
+                            </Link>
+                            <Link to="/programs"className="block px-1 py-7 text-white hover:bg-green-500 transition duration-300">
+                                <li className="w-1/2 px-1">
+                                    Programs
+                                </li>
+                            </Link>
+                            <Link to="/fields" className="block  px-1 py-7 text-white hover:bg-green-500 transition duration-300">
+                                <li className="w-1/2 px-1">
+                                    Fields of study
+                                </li>
+                            </Link>
+                            { userInfo  ?
+                            (
+                                <>
+                                    <Link className="" to="">
+                                        <li
+                                        className="py-2 px-4 rounded-md bg-transparent text-white hover:bg-amber-500 hover:text-white transition-all"
+                                        >
+                                            My Favourites
+                                        </li>
+                                    </Link>
+                                    <Link className="" to="">
+                                        <li 
+                                        onClick={logoutHandler}
+                                            className="py-2 px-4 rounded-md bg-transparent text-white hover:bg-amber-500 hover:text-white transition-all"
+                                        >
+                                            Sign out
+                                            
+                                        </li>
+                                    </Link>
+
+                                    <Link className="" to="">
+                                        <li 
+                                            className="py-2 px-4 rounded-md bg-transparent text-white hover:bg-amber-500 hover:text-white transition-all"
+                                        >
+                                        {userInfo.username}
+                                            
+                                        </li>
+                                    </Link>
+                                </>
+                                
+                           
+                             ):(
+                                
+                            <Link to="/signin"  className="rounded-full text-white py-1 px-4 border-1 hover:bg-amber-300">
+                                <li className="w-1/2 px-1" >
+                                    Sign In
+                                </li>
+                            </Link>   
+                            )
+                         }
+
+                          { registeredUser  ?
+                            (
+                                <>
+                                    <Link className="" to="">
+                                        <li
+                                        className="py-2 px-4 rounded-md bg-transparent text-white hover:bg-amber-500 hover:text-white transition-all"
+                                        >
+                                            My Favourites
+                                        </li>
+                                    </Link>
+                                    <Link className="" to="">
+                                        <li 
+                                        onClick={logoutHandler}
+                                            className="py-2 px-4 rounded-md bg-transparent text-white hover:bg-amber-500 hover:text-white transition-all"
+                                        >
+                                            Sign out
+                                            
+                                        </li>
+                                    </Link>
+
+                                    <Link className="" to="">
+                                        <li 
+                                            className="py-2 px-4 rounded-md bg-transparent text-white hover:bg-amber-500 hover:text-white transition-all"
+                                        >
+                                        {userInfo.username}
+                                            
+                                        </li>
+                                    </Link>
+                                </>
+                                
+                           
+                             ):(
+                                
+                              <></>
+                            )
+                         }
+                            <Link to="/fr" className="block  px-1 py-7 hover:bg-green-500 transition duration-300">
+                                <li className="w-1/2 px-1">
+                                    FR
+                                </li>
+                            </Link>
+                        </ul>
+                    </div>
+                    <Modal isOpen={isOpen} toggle={toggle}>
+                        <SignIn/>
+                    </Modal>
+
+                            
+
+
+
+            </div>
+        </nav>
+    </div>
+)
 } 
 
 
 export default Header
-
-function useSelector(arg0: (state: any) => any) {
-    throw new Error("Function not implemented.");
-}

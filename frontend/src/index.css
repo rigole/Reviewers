@@ -7,6 +7,46 @@ body {
   font-family: Comfortaa;
 }
 
+.main_nav{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: sticky;
+  z-index: 50;
+  height: 50px;
+  align-items: center;
+}
+
+/* Modal Style */
+
+.modal-overlay {
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-box {
+  display: block;
+  /*background: white;*/
+  width: 70%;
+  height: 70%;
+  padding: 1rem;
+}
+
+.closing-modal-icon{
+  position: absolute;
+  top: 0;
+  margin-top: 9rem;
+  margin-left: 40rem;
+  cursor: pointer;
+}
+/* End Modal Style */
 
 /*body {
   margin: 0;
