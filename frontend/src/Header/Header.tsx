@@ -55,34 +55,34 @@ function ModalComponent(){
 
 return (
     <div className="fixed w-full z-10 ">
-        <nav className=" w-fulsl px-5 absolute list-none  right-0 left-0 z-10 text-blue-400 bg-[#1a1a37]">
+        <nav className=" w-fulsl px-5 absolute list-none text-base font-bold right-0 left-0 z-10  bg-[#e0e0e0]">
             <div className=" mx-auto flex py-5 justify-between font-comf">
                 <div>
-                    <Link to="#" className="text-lg  py-2 px-4 rounded-md bg-transparent text-white   transition-all">Reviewers Logo</Link>
+                    <Link to="#" className="text-lg  py-2 px-4 rounded-md bg-transparent   transition-all">Reviewers Logo</Link>
                 </div>
                 <ul className="hidden  list-none md:flex items-center space-x-1">
                     <Link to="/universities">
                         <li
-                            className="py-2 px-4 rounded-md bg-transparent text-white hover:bg-amber-500 hover:text-white transition-all">
-                            Universities
+                            className="py-2 px-4 rounded-md bg-transparent hover:bg-amber-500 hover:text-white transition-all">
+                            Decouvrir
                         </li>
                     </Link>
                     <Link to="/programs">
                         <li
-                            className="py-2 px-4 rounded-md bg-transparent text-white hover:bg-amber-500 hover:text-white transition-all">
-                            Programs
+                            className="py-2 px-4 rounded-md bg-transparent t hover:bg-amber-500 hover:text-white transition-all">
+                            Commercants
                         </li>
                     </Link>
                     <Link to="/fields">
                         <li
-                            className="py-2 px-4 rounded-md bg-transparent text-white hover:bg-amber-500 hover:text-white transition-all">
-                            Fields of Study
+                            className="py-2 px-4 rounded-md bg-transparent  hover:bg-amber-500 hover:text-white transition-all">
+                            Avis
                         </li>
                     </Link>
                     <Link to="">
                         <li
-                            className="py-2 px-4 rounded-md bg-transparent text-white hover:bg-amber-500 hover:text-white transition-all">
-                            fr
+                            className="py-2 px-4 rounded-md bg-transparent  hover:bg-amber-500 hover:text-white transition-all">
+                            En
                         </li>
                     </Link>
                     { userInfo  ?
@@ -90,7 +90,7 @@ return (
                             <>
                                  <Link className="" to="">
                                     <li
-                                       className="py-2 px-4 rounded-md bg-transparent text-white hover:bg-amber-500 hover:text-white transition-all"
+                                       className="py-2 px-4 rounded-md bg-transparent  hover:bg-amber-500 hover:text-white transition-all"
                                     >
                                         My Favourites
                                     </li>
@@ -98,7 +98,7 @@ return (
                                 <Link className="" to="">
                                     <li 
                                     onClick={logoutHandler}
-                                        className="py-2 px-4 rounded-md bg-transparent text-white hover:bg-amber-500 hover:text-white transition-all"
+                                        className="py-2 px-4 rounded-md bg-transparent hover:bg-amber-500 hover:text-white transition-all"
                                     >
                                         Sign out
                                         
@@ -119,7 +119,7 @@ return (
                         ):(
                                 
                             <div  className="rounded-full py-2 px-4 border-1 hover:bg-amber-300">
-                                <Link className="space-x-5  rounded-md bg-transparent text-white  hover:text-white transition-all" to="/signin">
+                                <Link className="space-x-5  rounded-md bg-transparent  hover:text-white transition-all" to="/signin">
                                     Sign In
                                 </Link>
                             </div>   
