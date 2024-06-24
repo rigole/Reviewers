@@ -8,7 +8,7 @@ const HomePage = () => {
 
 
     return (
-        <div className="pt-20">
+        <div className="pt-40">
              <div className="text-center ">
                 <p className="text-4xl capitalize font-bold mb-4 font-comf">Rechercher un commercant, un prestataire ou des avis</p>
             </div>

@@ -7,6 +7,11 @@ body {
   font-family: Comfortaa;
 }
 
+.menu_links{
+display: flex;
+flex-direction: row;
+}
+
 .nosubmit{
   border: 1px solid #555;
   padding: 9px 4px 9px 40px;
@@ -64,3 +69,10 @@ body {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }*/
+
+@media screen and (max-width: 575px){
+  nav{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
