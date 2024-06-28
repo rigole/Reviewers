@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SaleCard from "../components/Salers-Card/SaleCard";
 
 
 
@@ -17,6 +18,7 @@ const HomePage = () => {
                     <input value={input} onChange={(e) => setInput(e.target.value)} className="nosubmit w-1/2 h-15 rounded-xl" type="search" placeholder="Rechercher un commercant" required/>
                 </form>
             </div>
+            <SaleCard/>
 
         </div>
     )
